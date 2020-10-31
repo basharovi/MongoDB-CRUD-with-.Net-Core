@@ -3,35 +3,42 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using MongoDB_CRUD.Models;
+using MongoDB_CRUD.Repository;
 
 namespace MongoDB_CRUD.Services
 {
     public class CustomerService : ICustomerService
     {
+        private readonly ICustomerRepository _customerRepository;
+
+        public CustomerService(ICustomerRepository customerRepository)
+        {
+            _customerRepository = customerRepository;
+        }
 
         public Task<List<Customer>> GetAllAsync()
         {
-            throw new System.NotImplementedException();
+            return _customerRepository.GetAllAsync();
         }
 
         public Task<Customer> GetByIdAsync(string id)
         {
-            throw new System.NotImplementedException();
+            return _customerRepository.GetByIdAsync(id);
         }
 
         public Task<Customer> CreateAsync(Customer customer)
         {
-            throw new System.NotImplementedException();
+            return _customerRepository.CreateAsync(customer);
         }
 
         public Task UpdateAsync(string id, Customer customer)
         {
-            throw new System.NotImplementedException();
+            return _customerRepository.UpdateAsync(id, customer);
         }
 
-        public Task<List<Customer>> DeleteAsync(string id)
+        public Task DeleteAsync(string id)
         {
-            throw new System.NotImplementedException();
+            return _customerRepository.DeleteAsync(id);
         }
     }
 }

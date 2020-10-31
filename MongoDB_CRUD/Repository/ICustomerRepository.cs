@@ -10,6 +10,6 @@ namespace MongoDB_CRUD.Repository
         Task<Customer> GetByIdAsync(string id);
         Task<Customer> CreateAsync(Customer customer);
         Task UpdateAsync(string id, Customer customer);
-        Task<List<Customer>> DeleteAsync(string id);
+        Task DeleteAsync(string id);
     }
 }
