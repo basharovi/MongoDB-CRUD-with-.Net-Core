@@ -17,6 +17,8 @@ namespace MongoDB_CRUD.Models
 
         [BsonElement("contact")]
         public string Contact { get; set; }
+        [BsonElement("country")]
+        public string Country { get; set; }
 
         [BsonElement("email")]
         public string Email { get; set; }

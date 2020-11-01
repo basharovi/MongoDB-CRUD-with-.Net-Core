@@ -19,7 +19,7 @@ namespace MongoDB_CRUD.Controllers
         {
             return Ok(await _customerService.GetAllAsync().ConfigureAwait(false));
         }
-        [HttpGet("{id:length(20)}")]
+        [HttpGet("{id:length(24)}")]
         public async Task<IActionResult> Get(string id)
         {
             var customer = await _customerService.GetByIdAsync(id).ConfigureAwait(false);
@@ -39,7 +39,7 @@ namespace MongoDB_CRUD.Controllers
             await _customerService.CreateAsync(customer).ConfigureAwait(false);
             return Ok(customer.Id);
         }
-        [HttpPut("{id:length(20)}")]
+        [HttpPut("{id:length(24)}")]
         public async Task<IActionResult> Update(string id, Customer customerIn)
         {
             var customer = await _customerService.GetByIdAsync(id).ConfigureAwait(false);
@@ -50,7 +50,7 @@ namespace MongoDB_CRUD.Controllers
             await _customerService.UpdateAsync(id, customerIn).ConfigureAwait(false);
             return NoContent();
         }
-        [HttpDelete("{id:length(20)}")]
+        [HttpDelete("{id:length(24)}")]
         public async Task<IActionResult> Delete(string id)
         {
             var customer = await _customerService.GetByIdAsync(id).ConfigureAwait(false);
