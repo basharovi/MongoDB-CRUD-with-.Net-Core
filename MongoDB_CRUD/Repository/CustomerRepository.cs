@@ -26,7 +26,7 @@ namespace MongoDB_CRUD.Repository
         }
         public Task<Customer> GetByIdAsync(string id)
         {
-            return _customer.Find<Customer>(c => c.Id == id).FirstOrDefaultAsync();
+            return _customer.Find(c => c.Id == id).FirstOrDefaultAsync();
         }
         public async Task<Customer> CreateAsync(Customer customer)
         {
